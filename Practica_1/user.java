@@ -24,7 +24,7 @@ public class user {
 	
 	
 	static void login() {
-		int i=-1;
+		int i=0;
 		System.out.println("Introduce your email: ");
 		Scanner sc1 = new Scanner(System.in);
 		emailt = sc1.nextLine();
@@ -32,7 +32,7 @@ public class user {
 	    Scanner sc2 = new Scanner(System.in);
 		passwordt = sc2.nextLine();
 		do {
-		 i=i+1;		
+		 i++;		
 		}while(i<=5&&!users[i].email.equals(emailt)&&!users[i].password.equals(passwordt));
 		
 		if(users[i].email.equals(emailt)&&users[i].password.equals(passwordt)) {
