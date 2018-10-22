@@ -10,9 +10,9 @@ public class user {
     static String emailt;
 	static String passwordt;
 	static String namet;
+	static int selS=0;
+	static int selL=0;
 	static user[] users = new user[5];
-	static int selS;
-	static int selL;
     
 	
 	user(String name, String email, String password, Boolean exist){
@@ -24,7 +24,7 @@ public class user {
 	
 	
 	static void login() {
-		int i=0;
+		selL=0;
 		System.out.println("Introduce your email: ");
 		Scanner sc1 = new Scanner(System.in);
 		emailt = sc1.nextLine();
@@ -32,10 +32,10 @@ public class user {
 	    Scanner sc2 = new Scanner(System.in);
 		passwordt = sc2.nextLine();
 		do {
-		 i++;		
-		}while(i<=5&&!users[i].email.equals(emailt)&&!users[i].password.equals(passwordt));
+		 selL++;		
+		}while(selL<selS&&!users[selL].email.equals(emailt)&&!users[selL].password.equals(passwordt));
 		
-		if(users[i].email.equals(emailt)&&users[i].password.equals(passwordt)) {
+		if(users[selL].email.equals(emailt)&&users[selL].password.equals(passwordt)) {
 			System.out.println("WELCOME");
 		
 		}
@@ -46,59 +46,10 @@ public class user {
 	
 	
     static void signin() {
-    	selS=0;
-		System.out.println("Introduce your email: ");
-		Scanner sc3 = new Scanner(System.in);
-		emailt = sc3.nextLine();
-		System.out.println("Introduce your password: ");
-	    Scanner sc4 = new Scanner(System.in);
-		passwordt = sc4.nextLine();
-		System.out.println("Introduce your name: ");
-		Scanner sc5 = new Scanner(System.in);
-		namet = sc5.nextLine();
-		if(users[selS].exist=true) {
-			selS++;
-		}
-		else{
-		
-		}
-    }
-    
-    
-	static void Usermenu() {
-	int select;
-	users[0]=new user("luis", "luis@gmail.com", "password", true);
-	do {
-	System.out.println("Welcome to THE WAREHOUSE");
-    System.out.println("   1. Log in ");
-	System.out.println("   2. Sign in");
-	System.out.println("   3. Exit");
-	Scanner sc = new Scanner(System.in);
-	select = sc.nextInt();
-	
-    switch(select) {
-		case 1:
-			int selL=0;
-			System.out.println("Introduce your email: ");
-			Scanner sc1 = new Scanner(System.in);
-			emailt = sc1.nextLine();
-			System.out.println("Introduce your password: ");
-		    Scanner sc2 = new Scanner(System.in);
-			passwordt = sc2.nextLine();
-			do {
-			 selL++;		
-			}while(selL<=5&&!users[selL].email.equals(emailt)&&!users[selL].password.equals(passwordt));
-			
-			if(users[selL].email.equals(emailt)&&users[selL].password.equals(passwordt)) {
-				System.out.println("WELCOME");
-			
-			}
-			else{
-			    System.out.println("ERROR ERROR ERROR");
-			}
-	break;
-		case 2:
-			selS=0;
+    	if (selS<=5&&users[selS].exist==true) {
+			  selS++;
+		  }
+		  
 			System.out.println("Introduce your email: ");
 			Scanner sc3 = new Scanner(System.in);
 			emailt = sc3.nextLine();
@@ -109,13 +60,28 @@ public class user {
 			Scanner sc5 = new Scanner(System.in);
 			namet = sc5.nextLine();
 			
-			do {
-				selS++;
-			}while((selS<=5&&users[selS].exist==true));
-			
 			users[selS]=new user(namet, emailt, passwordt, true);
-			
-			
+    }
+    
+    
+	static void Usermenu() {
+    users[0]=new user("luis", "luis@gmail.com", "password", true);
+	int select;
+	do {
+	System.out.println("Welcome to THE WAREHOUSE");
+    System.out.println("   1. Log in ");
+	System.out.println("   2. Sign in");
+	System.out.println("   3. Exit");
+	Scanner sc = new Scanner(System.in);
+	select = sc.nextInt();
+	
+    switch(select) {
+		case 1:
+			login();
+	break;
+		case 2:
+		 signin(); 
+		  		
     case 3:
     	break;
 	}
