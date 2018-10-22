@@ -2,20 +2,20 @@ package com.nebrija.lfg;
 import java.util.Scanner;
 
 
-public class user {
+public class User {
 	private String email;
 	private String name;
 	private String password;
-    private Boolean exist;
-    static String emailt;
+    	private Boolean exist;
+    	static String emailt;
 	static String passwordt;
 	static String namet;
 	static int selS=0;
 	static int selL=0;
-	static user[] users = new user[5];
+	static User[] users = new User[5];
     
 	
-	user(String name, String email, String password, Boolean exist){
+	User(String name, String email, String password, Boolean exist){
 		this.name=name;
 		this.email=email;
 		this.password=password;
@@ -29,7 +29,7 @@ public class user {
 		Scanner sc1 = new Scanner(System.in);
 		emailt = sc1.nextLine();
 		System.out.println("Introduce your password: ");
-	    Scanner sc2 = new Scanner(System.in);
+	    	Scanner sc2 = new Scanner(System.in);
 		passwordt = sc2.nextLine();
 		do {
 		 selL++;		
