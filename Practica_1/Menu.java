@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Menu {
 	static int select;
+	
+
 	static void menuP() {
 			do {
 				System.out.println("Choose an option");
@@ -19,12 +21,13 @@ public class Menu {
 						Product.buyP();
 				break;
 					case 2:
-					
+						
 					  		
 			    case 3:
 			    	Product.showB();
 			    	break;
 			    case 4:
+			    	Product.currency();
 			    }	
 				}while(select!=5);
 	}

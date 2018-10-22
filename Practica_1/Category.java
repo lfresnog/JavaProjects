@@ -6,6 +6,9 @@ public class Category {
 	static String name;
 	static List<Category> cList = new ArrayList<Category>();
 	static List<Product> pList = new ArrayList<Product>();
+	static boolean euro=true;
+	static boolean dollar=false;
+	static boolean pound=false;
 	
 	Category(String name){
 		this.name = name;
@@ -21,7 +24,15 @@ public class Category {
 	 void printP() {
 		System.out.println("-- " + this.getName()+" --" + ": ");
 		for(int i = 0; i < pList.size(); i++) {
-			System.out.print(", " + pList.get(i).getName());
+			if(euro=true) {
+				System.out.println(user.basket.get(i).getName()+"   "+Product.price+"€");
+				}
+				else if(dollar=true) {
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*0,87+"$");
+					}
+				else if(pound=true) {
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*1,13+" £");
+					}
 		}
 	}
 	

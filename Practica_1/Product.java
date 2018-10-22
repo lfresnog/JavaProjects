@@ -6,13 +6,16 @@ public class Product {
 	int category;
 	static String name;
 	int id;
-
-	float price;
+	static int select1;
+	static float price;
 	static String selC;
 	static Category selC1;
 	static String selP;
 	static Product selP1;
 	static int select;
+	static boolean euro=true;
+	static boolean dollar=false;
+	static boolean pound=false;
 	boolean exist=true;
 	
 
@@ -66,12 +69,47 @@ public class Product {
 		if (user.basket.size() > 0) {
 			System.out.println(user.basket.get(0).getName());
 			for(int i = 0; i < user.basket.size(); i++) {
-				System.out.println(user.basket.get(i).getName());
+				if(euro=true) {
+				System.out.println(user.basket.get(i).getName()+"   "+Product.price+"€");
+				}
+				else if(dollar=true) {
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*0,87+"$");
+					}
+				else if(pound=true) {
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*1,13+" £");
+					}
 			}
 			System.out.println(".");
 		} else {
 			System.out.println("Empty");
 		}
+	}
+	
+	static void currency() {
+		System.out.println("Choose an option");
+	    System.out.println("   1. € ");
+		System.out.println("   2. $");
+		System.out.println("   3. £");
+		Scanner sc1 = new Scanner(System.in);
+		select1 = sc1.nextInt();
+		
+	    switch(select1) {
+	    case 1:
+	    	euro=true;
+	    	dollar=false;
+	    	pound=false;
+	    	break;
+	    case 2:
+	    	euro=false;
+	    	dollar=true;
+	    	pound=false;
+	    	break;
+	    case 3:
+	    	euro=false;
+	    	dollar=false;
+	    	pound=true;
+	    	break;
+	    }
 	}
 
 	
