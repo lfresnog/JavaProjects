@@ -6,8 +6,8 @@ public class user {
 	private String email;
 	private String name;
 	private String password;
-    private Boolean exist;
-    static String emailt;
+    	private Boolean exist;
+    	static String emailt;
 	static String passwordt;
 	static String namet;
 	static int selS=0;
@@ -29,7 +29,7 @@ public class user {
 		Scanner sc1 = new Scanner(System.in);
 		emailt = sc1.nextLine();
 		System.out.println("Introduce your password: ");
-	    Scanner sc2 = new Scanner(System.in);
+	    	Scanner sc2 = new Scanner(System.in);
 		passwordt = sc2.nextLine();
 		do {
 		 selL++;		
@@ -54,7 +54,7 @@ public class user {
 			Scanner sc3 = new Scanner(System.in);
 			emailt = sc3.nextLine();
 			System.out.println("Introduce your password: ");
-		    Scanner sc4 = new Scanner(System.in);
+		    	Scanner sc4 = new Scanner(System.in);
 			passwordt = sc4.nextLine();
 			System.out.println("Introduce your name: ");
 			Scanner sc5 = new Scanner(System.in);
@@ -65,11 +65,11 @@ public class user {
     
     
 	static void Usermenu() {
-    users[0]=new user("luis", "luis@gmail.com", "password", true);
+    	users[0]=new user("luis", "luis@gmail.com", "password", true);
 	int select;
 	do {
 	System.out.println("Welcome to THE WAREHOUSE");
-    System.out.println("   1. Log in ");
+    	System.out.println("   1. Log in ");
 	System.out.println("   2. Sign in");
 	System.out.println("   3. Exit");
 	Scanner sc = new Scanner(System.in);
@@ -80,7 +80,7 @@ public class user {
 			login();
 	break;
 		case 2:
-		 signin(); 
+		 	signin(); 
 		  		
     case 3:
     	break;
