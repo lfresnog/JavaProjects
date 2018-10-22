@@ -4,23 +4,48 @@ import java.util.List;
 
 public class Category {
 	static String name;
-	static List<Category> categorylist = new ArrayList<Category>();
+	static List<Category> cList = new ArrayList<Category>();
+	static List<Product> pList = new ArrayList<Product>();
 	
 	Category(String name){
 		this.name = name;
-		categorylist.add(this);
+		cList.add(this);
 	}
 	
-	static void printCategories() {
-		if (categorylist.size() > 0) {
-			System.out.print("Categories: " + categorylist.get(0).getName());
-			for(int i = 1; i < categorylist.size(); i++) {
-				System.out.print(", " + categorylist.get(i).getName());
+	 static void printC() {
+			System.out.println("Categories: ");
+			for(int i = 0; i < cList.size(); i++) {
+				System.out.println(cList.get(i).getName());
 			}
-			System.out.println(".");
-		} else {
-			System.out.println("There are no categories yet.");
+		} 
+	 void printP() {
+		System.out.println("-- " + this.getName()+" --" + ": ");
+		for(int i = 0; i < pList.size(); i++) {
+			System.out.print(", " + pList.get(i).getName());
 		}
+	}
+	
+	static Category searchC(String name) {
+		Category category = new Category(name);
+		for(int i = 0; i < cList.size(); i++) {
+			if(name.equals(cList.get(i).getName())) {
+				category = cList.get(i);
+				break;
+			}
+		}
+		return category;
+	}
+	static Product searchP(String name) {
+		Product searched = new Product(name, 1, 1, true);
+		for(int i = 0; i < cList.size(); i++) {
+			for(int j = 0; j < cList.get(i).pList.size(); j++) {
+				if(name.equals(cList.get(i).pList.get(j).getName())){
+					searched = cList.get(i).pList.get(j);
+					break;
+				}
+			}
+		}
+		return searched;
 	}
 	
 	String getName() {
@@ -32,10 +57,15 @@ public class Category {
 	}
 	
 	
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+    
 	}
+
+	
+
+	
 
 }
