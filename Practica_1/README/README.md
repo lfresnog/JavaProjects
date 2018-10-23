@@ -10,7 +10,7 @@ The program is form by two principal menus:
 
 
 
-![alt text](https://github.com/lfresnog/JavaProjects/blob/master/Practica_1/corte1.PNG)
+![alt text](https://github.com/lfresnog/JavaProjects/blob/master/Practica_1/README/corte1.PNG)
 
 1. Log in with your user.
 2. Creatiion of user.
@@ -22,7 +22,7 @@ The program is form by two principal menus:
 
 
 
-![alt text](https://github.com/lfresnog/JavaProjects/blob/master/Practica_1/corte%202.PNG)
+![alt text](https://github.com/lfresnog/JavaProjects/blob/master/Practica_1/README/corte%202.PNG)
 
 1. You can choose a product and add it to your basket.
 2. Add a product to a precreated category.
