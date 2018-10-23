@@ -2,7 +2,8 @@ PROJECT 1
 
 The principal idea, is create a platform were different users can buy and sell different products.
 
-I started this idea trought the implementation of arrays, but when i tried to link it with my users, started to give me a lot problems, also, the use of arrays make the code too big and complicated. So, following the tips and help of my schoolmates, I decided to make it, with the new variable that we have seen with Alfonso, arrayList. I think that works well, but in some exceptional cases, the code has leaks.
+I started this idea trought the implementation of arrays, but when i tried to link it with my users, started to give me a lot problems, also, the use of arrays make the code too big and complicated. So, following the tips and help of my schoolmates, I decided to make it, with the new variable that we have seen with Alfonso, arrayList. I think that works well, but in some exceptional cases, the code has leaks. 
+
 
 The program is form by two principal menus:
 
