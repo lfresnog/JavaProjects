@@ -8,23 +8,26 @@ public class Product {
 	int id;
 	static int select1;
 	static float price;
+	static float price1;
 	static String selC;
 	static Category selC1;
 	static String selP;
 	static Product selP1;
+	static int quantity;
+	static int quantity1;
 	static int select;
 	static boolean euro=true;
 	static boolean dollar=false;
 	static boolean pound=false;
 	boolean exist=true;
+
 	
 
 	
-	Product( String name, int id, float price, boolean exist){
+	Product( String name, float price, int quantity){
 		this.name=name;
-		this.id = id;
 		this.price=price;
-		this.exist = exist;
+		this.quantity=quantity;
 	}
 	int getCategoryId() {
 		return category;
@@ -39,10 +42,9 @@ public class Product {
 	}
 	
 	
-	float getPrice() {
-		return price;
+	float getQuantity() {
+		return quantity;
 	}
-	
 	
 	static void buyP() {
 		Category.printC();
@@ -55,14 +57,41 @@ public class Product {
 		} else {
 			selC1.printP();
 		}
+		System.out.print("Select product: ");
 		Scanner sc2 = new Scanner(System.in);
 		selP = sc2.nextLine();
 		selP1 = Category.searchP(selP);
 		if(getName() == null) {
-			System.out.println("Error, product not found.");
+			System.out.println("ERROR");
 		} else {
 			user.basket.add(selP1);
+			selP1.quantity--;
+			if(selP1.quantity==0) {
 			Category.pList.remove(selP1);
+			}
+		}
+	}
+	static void sellP() {
+		Category.printC();
+		System.out.print("Select category: ");
+		Scanner sc1 = new Scanner(System.in);
+		selC = sc1.nextLine();
+		selC1 = Category.searchC(selC);
+		if(selC1.getName() == null) {
+			System.out.println("ERROR");
+		} else {
+			selC1.printP();
+		}
+		System.out.print("Add product: ");
+		Scanner sc2 = new Scanner(System.in);
+		selP = sc2.nextLine();
+		Scanner sc3 = new Scanner(System.in);
+		quantity1 = sc3.nextInt();
+		Scanner sc4 = new Scanner(System.in);
+		price1 = sc4.nextInt();
+		selP1=new Product(selP, price1, quantity1);
+		if(getName() == null) {
+			Category.pList.add(selP1);
 		}
 	}
 	static void showB() {
@@ -70,16 +99,15 @@ public class Product {
 			System.out.println(user.basket.get(0).getName());
 			for(int i = 0; i < user.basket.size(); i++) {
 				if(euro=true) {
-				System.out.println(user.basket.get(i).getName()+"   "+Product.price+"€");
+				System.out.println(user.basket.get(i).getName()+"   "+Product.price+"€  x"+user.basket.get(i).getQuantity() );
 				}
 				else if(dollar=true) {
-					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*0,87+"$");
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*0,87+"$  x"+user.basket.get(i).getQuantity() );
 					}
 				else if(pound=true) {
-					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*1,13+" £");
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*1,13+" £  x"+user.basket.get(i).getQuantity() );
 					}
 			}
-			System.out.println(".");
 		} else {
 			System.out.println("Empty");
 		}

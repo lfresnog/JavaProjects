@@ -47,7 +47,7 @@ public class Category {
 		return category;
 	}
 	static Product searchP(String name) {
-		Product searched = new Product(name, 1, 1, true);
+		Product searched = new Product(name, 1, 1);
 		for(int i = 0; i < cList.size(); i++) {
 			for(int j = 0; j < cList.get(i).pList.size(); j++) {
 				if(name.equals(cList.get(i).pList.get(j).getName())){
@@ -68,8 +68,6 @@ public class Category {
 	}
 	
 	
-	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
     

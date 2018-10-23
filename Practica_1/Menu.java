@@ -21,13 +21,14 @@ public class Menu {
 						Product.buyP();
 				break;
 					case 2:
-						
-					  		
+						Product.sellP();		  		
 			    case 3:
 			    	Product.showB();
 			    	break;
 			    case 4:
 			    	Product.currency();
+			    case 5:
+			    	
 			    }	
 				}while(select!=5);
 	}
