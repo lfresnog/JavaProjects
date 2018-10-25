@@ -16,6 +16,11 @@ public class user {
 	static int selS=0;
 	static int selL=0;
 	static user[] users = new user[5];
+	static Category lapiz=new Category("lapiz");
+	static Product red=new Product("lapiz", "red", 1, 2);
+	static Product blue=new Product("lapiz", "blue", 2, 1);
+	static Product green=new Product("lapiz", "green", 1, 1);
+
     
 	user(String name, String email, String password, Boolean exist){
 		this.name=name;
@@ -94,10 +99,14 @@ public class user {
     case 3:
     	break;
 	}
-	}while(select!=3&&select!=1);
+	}while(select!=3);
 	}
     
 	public static void main(String[] args) {
+		Category.cList.add(lapiz);
+		Category.pList.add(red);
+		Category.pList.add(blue);
+		Category.pList.add(green);
 	userMenu();	
 	 
 	}

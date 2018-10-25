@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 
 public class Product {
-	int category;
 	static String name;
 	int id;
 	static int select1;
@@ -16,20 +15,22 @@ public class Product {
 	static int quantity;
 	static int quantity1;
 	static int select;
-	static boolean euro=true;
-	static boolean dollar=false;
+	static String category;
+	static boolean euro=false;
+	 static boolean dollar=true;
 	static boolean pound=false;
+	
 	boolean exist=true;
 
-	
 
 	
-	Product( String name, float price, int quantity){
+	Product(String category, String name, float price, int quantity){
+		this.category=category;
 		this.name=name;
 		this.price=price;
 		this.quantity=quantity;
 	}
-	int getCategoryId() {
+	String getCategoryId() {
 		return category;
 	}
 	
@@ -55,7 +56,7 @@ public class Product {
 		if(selC1.getName() == null) {
 			System.out.println("ERROR");
 		} else {
-			selC1.printP();
+			user.lapiz.printP();
 		}
 		System.out.print("Select product: ");
 		Scanner sc2 = new Scanner(System.in);
@@ -82,30 +83,32 @@ public class Product {
 		} else {
 			selC1.printP();
 		}
-		System.out.print("Add product: ");
+		System.out.print("Add name: ");
 		Scanner sc2 = new Scanner(System.in);
 		selP = sc2.nextLine();
+		System.out.print("Add quantity: ");
 		Scanner sc3 = new Scanner(System.in);
 		quantity1 = sc3.nextInt();
+		System.out.print("Add price: ");
 		Scanner sc4 = new Scanner(System.in);
 		price1 = sc4.nextInt();
-		selP1=new Product(selP, price1, quantity1);
+		selP1=new Product(selC, selP, price1, quantity1);
 		if(getName() == null) {
 			Category.pList.add(selP1);
 		}
 	}
 	static void showB() {
+		
 		if (user.basket.size() > 0) {
-			System.out.println(user.basket.get(0).getName());
 			for(int i = 0; i < user.basket.size(); i++) {
 				if(euro=true) {
-				System.out.println(user.basket.get(i).getName()+"   "+Product.price+"€  x"+user.basket.get(i).getQuantity() );
+				System.out.println(user.basket.get(i).getName()+"   "+Product.price+"€  ");
 				}
 				else if(dollar=true) {
-					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*0,87+"$  x"+user.basket.get(i).getQuantity() );
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*0,87+"$  ");
 					}
 				else if(pound=true) {
-					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*1,13+" £  x"+user.basket.get(i).getQuantity() );
+					System.out.printf(user.basket.get(i).getName()+"   "+Product.price*1,13+" £  " );
 					}
 			}
 		} else {
@@ -114,6 +117,7 @@ public class Product {
 	}
 	
 	static void currency() {
+		 
 		System.out.println("Choose an option");
 	    System.out.println("   1. € ");
 		System.out.println("   2. $");
@@ -122,6 +126,7 @@ public class Product {
 		select1 = sc1.nextInt();
 		
 	    switch(select1) {
+	    
 	    case 1:
 	    	euro=true;
 	    	dollar=false;
@@ -130,7 +135,6 @@ public class Product {
 	    case 2:
 	    	euro=false;
 	    	dollar=true;
-	    	pound=false;
 	    	break;
 	    case 3:
 	    	euro=false;
