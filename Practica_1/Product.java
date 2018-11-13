@@ -6,14 +6,14 @@ public class Product {
 		 String name;
 		 int id;
 		 int select1;
-		 static float price;
+		  float price;
 		 float price1;
-		 String selC;
-		 Category selC1;
-		 String selP;
-		 Product selP1;
+		  String selC;
+		  Category selC1;
+		  String selP;
+		  Product selP1;
 		 int quantity;
-		 int quantity1;
+		  int quantity1;
 		 int select;
 		 String category;
 		 static boolean euro=false;
@@ -28,6 +28,11 @@ public class Product {
 			this.price=price;
 			this.quantity=quantity;
 		}
+		
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+
 		String getCategoryId() {
 			return category;
 		}
@@ -44,7 +49,15 @@ public class Product {
 			return quantity;
 		}
 		
-		 void buyP() {
+		 public float getPrice() {
+			return price;
+		}
+
+		public void setPrice(float price) {
+			this.price = price;
+		}
+
+		 void buyProduct() {
 			Category.printCategories();
 			System.out.print("Select category: ");
 			Scanner sc1 = new Scanner(System.in);
@@ -59,17 +72,18 @@ public class Product {
 			Scanner sc2 = new Scanner(System.in);
 			selP = sc2.nextLine();
 			selP1 = Category.searchProducts(selP);
-			if(getName() == null) {
+			if(selP1.getName() == null) {
 				System.out.println("ERROR");
 			} else {
-				User.basket.add(selP1);
+				User.Users.get(User.selL).getBasket().add(selP1);
 				selP1.quantity--;
 				if(selP1.quantity==0) {
 				Category.Products.remove(selP1);
 				}
 			}
 		}
-		 void sellP() {
+		 
+		void sellProduct() {
 			Category.printCategories();
 			System.out.print("Select category: ");
 			Scanner sc1 = new Scanner(System.in);
@@ -91,7 +105,7 @@ public class Product {
 			price1 = sc4.nextInt();
 			selP1=new Product(selC, selP, price1, quantity1);
 			if(getName() == null) {
-				Category.Categories.add(selP1);
+				Category.Categories.add(selC1);
 			}
 		}
 		 
@@ -125,7 +139,7 @@ public class Product {
 		}
 
 		
-		 void menuP() {
+		  void menuP() {
 			int select;
 			do {
 				System.out.println("Choose an option");
@@ -139,16 +153,16 @@ public class Product {
 					
 				switch(select) {
 					case 1:
-						//Product.buyP();
+						buyProduct();
 						break;
 					case 2:
-						//Product.sellP();
+						sellProduct();
 						break;
 				    case 3:
-				    	//Product.showB();
+				    	User.showBasket();
 				    	break;
 				    case 4:
-				    	//Product.currency();
+				    	currency();
 				    	break;
 				    case 5:
 				    	

@@ -8,18 +8,24 @@ public class User {
 	private  String name;
 	private  String password;
 	private Boolean exist;
+	List<Product> basket = new ArrayList<Product>();
     public List<User> Users=new ArrayList<>();
 	private  int selS=0;
-	public  int selL=0;
+	public int selL=0;
 	
 	User(String name, String email, String password){
 		this.name=name;
 		this.email=email;
 		this.password=password;
 		exist = new Boolean(true);
-		List<Product> basket = new ArrayList<Product>();
+		List<Product> basketU = new ArrayList<Product>();
+		basket=basketU;
 	}
 	
+	public List<Product> getBasket() {
+		return basket;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -66,7 +72,7 @@ public class User {
         }
         else if(Users.get(selL).getEmail().equals(email)&&Users.get(selL).getPassword().equals(password)) {
 			System.out.println("Welcome "+ Users.get(selL).getName());
-			//Menu.menuP();
+			Product.menuP();
 		}
 		else{
 		    System.out.println("The user/password is incorrect.");
@@ -100,18 +106,18 @@ public class User {
 		}
 	}
 	
-	void showBasket() {
-		
-		if (Users.get(selL).List<Product> basket.size() > 0) {
-			for(int i = 0; i < User.basket.size(); i++) {
+	 void showBasket() {
+		System.out.println("-- Basket --");
+		if (Users.get(selL).getBasket().size() > 0) {
+			for(int i = 0; i < Users.get(selL).getBasket().size(); i++) {
 				if(Product.euro=true) {
-				System.out.println(User.basket.get(i).getName()+"   "+Product.price+"€  ");
+				System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"€   x"+Users.get(selL).getBasket().get(i).getQuantity());
 				}
 				else if(Product.dollar=true) {
-					System.out.printf(User.basket.get(i).getName()+"   "+Product.price*0,87+"$  ");
+					System.out.printf(Users.get(selL).getBasket().get(i).getName()+"   "+Users.get(selL).getBasket().get(i).getPrice()*0,87+"$   x"+Users.get(selL).getBasket().get(i).getQuantity());
 					}
 				else if(Product.pound=true) {
-					System.out.printf(User.basket.get(i).getName()+"   "+Product.price*1,13+" £  " );
+					System.out.printf(Users.get(selL).getBasket().get(i).getName()+"   "+Users.get(selL).getBasket().get(i).getPrice()*1,13+"£   x"+Users.get(selL).getBasket().get(i).getQuantity());
 					}
 			}
 		} else {
@@ -119,7 +125,9 @@ public class User {
 		}
 	}
 	
-	 void userMenu() {	 
+	
+
+	void userMenu() {	 
 		int select;
 		do {
 		System.out.println("Welcome to THE WAREHOUSE");
@@ -140,6 +148,9 @@ public class User {
 	    	break;
 	    case 4:
 	    	printUsers();
+	    case 5:
+	    	showBasket();
+	    	
 		}
 		}while(select!=3);
 	}
@@ -147,9 +158,7 @@ public class User {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		User t=new User("","","");
-		t.Users.add(0,new User("luis", "luis@gmail.com", "123"));
-		t.userMenu();
+		
 	}
 
 }
