@@ -24,6 +24,40 @@ The program is form by two principal menus:
 ![alt text](https://github.com/lfresnog/JavaProjects/blob/master/Practica_1/README/corte1.PNG)
 
 1. Log in with your user.
+'''
+private void logIn() {
+		selL=0;
+		System.out.println("Introduce your email: ");
+		Scanner sc1 = new Scanner(System.in);
+		setEmail(sc1.nextLine());
+		System.out.println("Introduce your password: ");
+	    Scanner sc2=new Scanner(System.in);
+		setPassword(sc2.nextLine());
+		do {
+		 selL++;		
+		}
+		while(selL<selS&&!Users.get(selL).getEmail().equals(email)&&!Users.get(selL).getPassword().equals(password));
+        if(selS==0) {
+        	if(Users.get(0).getEmail().equals(email)&&Users.get(0).getPassword().equals(password)) {
+    			System.out.println("Welcome "+ Users.get(0).getName());
+    			selL=0;
+    			Product.menuP();
+    		}
+    		else{
+    		    System.out.println("The user/password is incorrect.");
+    		}
+        }
+        else if(Users.get(selL).getEmail().equals(email)&&Users.get(selL).getPassword().equals(password)) {
+			System.out.println("Welcome "+ Users.get(selL).getName());
+			Product.menuP();
+		}
+		else{
+		    System.out.println("The user/password is incorrect.");
+		}
+        
+	}
+  '''
+
 2. Creatiion of user.
 3. Close project.
 
