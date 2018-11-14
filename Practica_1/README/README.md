@@ -15,21 +15,21 @@ I fix all the problems, that the program had. And added new cast. Also I impleme
 ## Code
 ### Classes
 User:
-    -Name
-    -Email
-    -Password
-    -Exist (To test if it is the last user)
-    -Basket (List with the products that the user bought)
+     Name
+    /Email
+    /Password
+    /Exist (To test if it is the last user)
+    /Basket (List with the products that the user bought)
 
 Category:
-    -Name
-    -Products (List of products that contains)
+     Name
+    /Products (List of products that contains)
 
 Product:
-    -Categoty (To test where to put it)
-    -Name
-    -Price
-    -Quantity
+     Categoty (To test where to put it)
+    /Name
+    /Price
+    /Quantity
     
 ### Main
 The program is form by two principal menus:
