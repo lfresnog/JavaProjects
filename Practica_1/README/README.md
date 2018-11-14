@@ -12,11 +12,6 @@ I started this idea trought the implementation of arrays, but when i tried to li
 
 I fix all the problems, that the program had. And added new cast. Also I implement the code in different way instead of having only one list for the basket's users and the products's category, I created one list for each user or category, this makes the program bigger but faster, and in my opinion better.
 
-
-Please note that all of the code is still undocumented, and no contribution guidelines are in place.
-
-Contributions are welcome, just beware of the dragons. 🐲
-
 ## Code
 
 The program is form by two principal menus:
