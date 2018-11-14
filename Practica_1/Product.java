@@ -3,19 +3,16 @@ import java.util.Scanner;
 
 public class Product {
 	
-		 String name;
+		 static String name;
 		 int id;
-		 int select1;
-		  float price;
-		 float price1;
-		  String selC;
-		  Category selC1;
-		  String selP;
-		  Product selP1;
-		 int quantity;
-		  int quantity1;
+		 static float price;
+		 String selC;
+		 Category selC1;
+		 String selP;
+		 
+		 static int quantity;
 		 int select;
-		 String category;
+		 static String category;
 		 static boolean euro=false;
 		 static boolean dollar=true;
 		 static boolean pound=false;
@@ -29,12 +26,12 @@ public class Product {
 			this.quantity=quantity;
 		}
 		
-		public void setQuantity(int quantity) {
-			this.quantity = quantity;
+		public static void setName(String name1) {
+			name = name1;
 		}
 
-		String getCategoryId() {
-			return category;
+		public static void setQuantity(int quantity1) {
+			quantity = quantity1;
 		}
 		
 		 String getName() {
@@ -57,69 +54,54 @@ public class Product {
 			this.price = price;
 		}
 
-		 void buyProduct() {
-			Category.printCategories();
-			System.out.print("Select category: ");
-			Scanner sc1 = new Scanner(System.in);
-			selC = sc1.nextLine();
-			selC1 = Category.searchCategories(selC);
-			if(selC1.getName() == null) {
-				System.out.println("ERROR");
-			} else {
-				selC1.printProducts();
-			}
-			System.out.print("Select product: ");
-			Scanner sc2 = new Scanner(System.in);
-			selP = sc2.nextLine();
-			selP1 = Category.searchProducts(selP);
-			if(selP1.getName() == null) {
-				System.out.println("ERROR");
-			} else {
-				User.Users.get(User.selL).getBasket().add(selP1);
-				selP1.quantity--;
-				if(selP1.quantity==0) {
-				Category.Products.remove(selP1);
-				}
-			}
-		}
 		 
-		void sellProduct() {
-			Category.printCategories();
-			System.out.print("Select category: ");
-			Scanner sc1 = new Scanner(System.in);
-			selC = sc1.nextLine();
-			selC1 = Category.searchCategories(selC);
-			if(selC1.getName() == null) {
-				System.out.println("ERROR");
-			} else {
-				selC1.printProducts();
-			}
+		 public String getCategory() {
+			return category;
+		}
+
+		public static void setCategory(String category1) {
+			category = category1;
+		}
+
+		static void sellProduct() {
+			
 			System.out.print("Add name: ");
 			Scanner sc2 = new Scanner(System.in);
-			selP = sc2.nextLine();
+			setName(sc2.nextLine());
 			System.out.print("Add quantity: ");
 			Scanner sc3 = new Scanner(System.in);
-			quantity1 = sc3.nextInt();
+			setQuantity(sc3.nextInt());
 			System.out.print("Add price: ");
 			Scanner sc4 = new Scanner(System.in);
-			price1 = sc4.nextInt();
-			selP1=new Product(selC, selP, price1, quantity1);
-			if(getName() == null) {
-				Category.Categories.add(selC1);
+			setQuantity(sc4.nextInt());
+			System.out.print("In wich category: ");
+			Scanner sc5 = new Scanner(System.in);
+			setCategory(sc5.nextLine());
+			Product selP1;
+			selP1=new Product(category, name, price, quantity);
+			Scanner sc1 = new Scanner(System.in);
+			Category selC1;
+			selC1 = Category.searchCategories(selP1.getCategory());
+			if(selC1.getName() == null) {
+				Category.Categories.add(new Category(selP1.getCategory()));
+			} 
+			else {
+				selC1.getProducts().add(selP1);
 			}
 		}
+		
 		 
 		
-		 void currency() {
-			 
+		 static void currency() {
+	      int select;
 			System.out.println("Choose an option");
 		    System.out.println("   1. € ");
 			System.out.println("   2. $");
 			System.out.println("   3. £");
 			Scanner sc1 = new Scanner(System.in);
-			select1 = sc1.nextInt();
+			select = sc1.nextInt();
 			
-		    switch(select1) {
+		    switch(select) {
 		    
 		    case 1:
 		    	euro=true;
@@ -139,9 +121,10 @@ public class Product {
 		}
 
 		
-		  void menuP() {
+		   static void menuP() {
 			int select;
 			do {
+				
 				System.out.println("Choose an option");
 				System.out.println("   1. Buy ");
 				System.out.println("   2. Sell");
@@ -153,13 +136,13 @@ public class Product {
 					
 				switch(select) {
 					case 1:
-						buyProduct();
+						Category.buyProduct();
 						break;
 					case 2:
 						sellProduct();
 						break;
 				    case 3:
-				    	User.showBasket();
+				    	User.Users.get(User.selL).showBasket();
 				    	break;
 				    case 4:
 				    	currency();

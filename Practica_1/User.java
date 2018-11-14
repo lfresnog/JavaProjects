@@ -9,9 +9,9 @@ public class User {
 	private  String password;
 	private Boolean exist;
 	List<Product> basket = new ArrayList<Product>();
-    public List<User> Users=new ArrayList<>();
+    static public List<User> Users=new ArrayList<>();
 	private  int selS=0;
-	public int selL=0;
+	public static int selL=0;
 	
 	User(String name, String email, String password){
 		this.name=name;
@@ -65,6 +65,8 @@ public class User {
         if(selS==0) {
         	if(Users.get(0).getEmail().equals(email)&&Users.get(0).getPassword().equals(password)) {
     			System.out.println("Welcome "+ Users.get(0).getName());
+    			selL=0;
+    			Product.menuP();
     		}
     		else{
     		    System.out.println("The user/password is incorrect.");
@@ -87,7 +89,7 @@ public class User {
 		    
     	    System.out.println("Introduce your email: ");
 			Scanner sc3 = new Scanner(System.in);
-			setEmail(sc3.nextLine());;
+			setEmail(sc3.nextLine());
 			System.out.println("Introduce your name: ");
 		    Scanner sc4 = new Scanner(System.in);
 		    setName(sc4.nextLine());
@@ -110,14 +112,14 @@ public class User {
 		System.out.println("-- Basket --");
 		if (Users.get(selL).getBasket().size() > 0) {
 			for(int i = 0; i < Users.get(selL).getBasket().size(); i++) {
-				if(Product.euro=true) {
+				if(Product.euro==true) {
 				System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"€   x"+Users.get(selL).getBasket().get(i).getQuantity());
 				}
-				else if(Product.dollar=true) {
-					System.out.printf(Users.get(selL).getBasket().get(i).getName()+"   "+Users.get(selL).getBasket().get(i).getPrice()*0,87+"$   x"+Users.get(selL).getBasket().get(i).getQuantity());
+				else if(Product.dollar==true) {
+					System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"$   x"+Users.get(selL).getBasket().get(i).getQuantity());
 					}
-				else if(Product.pound=true) {
-					System.out.printf(Users.get(selL).getBasket().get(i).getName()+"   "+Users.get(selL).getBasket().get(i).getPrice()*1,13+"£   x"+Users.get(selL).getBasket().get(i).getQuantity());
+				else if(Product.pound==true) {
+					System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"£   x"+Users.get(selL).getBasket().get(i).getQuantity());
 					}
 			}
 		} else {
@@ -148,8 +150,10 @@ public class User {
 	    	break;
 	    case 4:
 	    	printUsers();
+	    	break;
 	    case 5:
 	    	showBasket();
+	    	break;
 	    	
 		}
 		}while(select!=3);
@@ -158,7 +162,11 @@ public class User {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		User t=new User("","","");
+		t.Users.add(0,new User("luis", "luis@gmail.com", "123"));
+		t.Users.get(0).getBasket().add(new Product("Lapices", "Lapiz Rojo", 1, 2 ));
+		t.Users.get(0).getBasket().add(new Product("Lapices", "Lapiz Verde", 5, 3 ));
+		t.userMenu();
 	}
 
 }
