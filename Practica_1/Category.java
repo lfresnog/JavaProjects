@@ -53,7 +53,6 @@ public class Category {
 		for(int i = 0; i < Categories.size(); i++) {
 			if(name.equals(Categories.get(i).getName())) {
 				category = Categories.get(i);
-				return category;
 			}
 		}
 	return category;

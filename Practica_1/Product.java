@@ -3,14 +3,13 @@ import java.util.Scanner;
 
 public class Product {
 	
-		 static String name;
+		 String name;
 		 int id;
-		 static float price;
+		 float price;
 		 String selC;
 		 Category selC1;
 		 String selP;
-		 
-		 static int quantity;
+		 int quantity;
 		 int select;
 		 static String category;
 		 static boolean euro=false;
@@ -26,11 +25,11 @@ public class Product {
 			this.quantity=quantity;
 		}
 		
-		public static void setName(String name1) {
+		public  void setName(String name1) {
 			name = name1;
 		}
 
-		public static void setQuantity(int quantity1) {
+		public  void setQuantity(int quantity1) {
 			quantity = quantity1;
 		}
 		
@@ -42,7 +41,7 @@ public class Product {
 			return id;
 		}
 		
-		float getQuantity() {
+		int getQuantity() {
 			return quantity;
 		}
 		
@@ -64,29 +63,28 @@ public class Product {
 		}
 
 		static void sellProduct() {
-			
+			Product selP1=new Product ("","",0,0);
 			System.out.print("Add name: ");
 			Scanner sc2 = new Scanner(System.in);
-			setName(sc2.nextLine());
+			selP1.setName(sc2.nextLine());
 			System.out.print("Add quantity: ");
 			Scanner sc3 = new Scanner(System.in);
-			setQuantity(sc3.nextInt());
+			selP1.setQuantity(sc3.nextInt());
 			System.out.print("Add price: ");
 			Scanner sc4 = new Scanner(System.in);
-			setQuantity(sc4.nextInt());
+			selP1.setPrice(sc4.nextFloat());
 			System.out.print("In wich category: ");
 			Scanner sc5 = new Scanner(System.in);
 			setCategory(sc5.nextLine());
-			Product selP1;
-			selP1=new Product(category, name, price, quantity);
+			Product selP2=new Product(selP1.getCategory(), selP1.getName(), selP1.getPrice(), selP1.getQuantity());
 			Scanner sc1 = new Scanner(System.in);
 			Category selC1;
-			selC1 = Category.searchCategories(selP1.getCategory());
+			selC1 = Category.searchCategories(selP2.getCategory());
 			if(selC1.getName() == null) {
-				Category.Categories.add(new Category(selP1.getCategory()));
+				Category.Categories.add(new Category(selP2.getCategory()));
 			} 
 			else {
-				selC1.getProducts().add(selP1);
+				selC1.getProducts().add(selP2);
 			}
 		}
 		
