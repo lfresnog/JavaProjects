@@ -12,7 +12,7 @@ public class User {
     static public List<User> Users=new ArrayList<>();
 	private  int selS=0;
 	public static int selL=0;
-	
+
 	User(String name, String email, String password){
 		this.name=name;
 		this.email=email;
@@ -21,7 +21,7 @@ public class User {
 		List<Product> basketU = new ArrayList<Product>();
 		basket=basketU;
 	}
-	
+
 	public List<Product> getBasket() {
 		return basket;
 	}
@@ -49,7 +49,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	private void logIn() {
 		selL=0;
 		System.out.println("Introduce your email: ");
@@ -59,7 +59,7 @@ public class User {
 	    Scanner sc2=new Scanner(System.in);
 		setPassword(sc2.nextLine());
 		do {
-		 selL++;		
+		 selL++;
 		}
 		while(selL<selS&&!Users.get(selL).getEmail().equals(email)&&!Users.get(selL).getPassword().equals(password));
         if(selS==0) {
@@ -79,14 +79,14 @@ public class User {
 		else{
 		    System.out.println("The user/password is incorrect.");
 		}
-        
+
 	}
-	
+
 	private void signIn() {
     	if (Users.get(selS).exist==true) {
 			  selS++;
 		  }
-		    
+
     	    System.out.println("Introduce your email: ");
 			Scanner sc3 = new Scanner(System.in);
 			setEmail(sc3.nextLine());
@@ -96,40 +96,43 @@ public class User {
 			System.out.println("Introduce your password: ");
 			Scanner sc5 = new Scanner(System.in);
 			setPassword(sc5.nextLine());
-			
+
 			Users.add(selS,new User(getName(), getEmail(), getPassword()));
     }
-	
+
 	void printUsers() {
 		for(int i=0;i<Users.size();i++) {
 			System.out.println(Users.get(i).getName());
 			System.out.println(Users.get(i).getEmail());
 			System.out.println(Users.get(i).getPassword());
 		}
-	}
-	
+	} /*you could use toString() method to print if you add it to the class and the code would be much simpler:
+       System.out.println(Users.get(i).toString())
+	  */
+
+
 	 void showBasket() {
 		System.out.println("-- Basket --");
 		if (Users.get(selL).getBasket().size() > 0) {
 			for(int i = 0; i < Users.get(selL).getBasket().size(); i++) {
 				if(Product.euro==true) {
-				System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"€   x"+Users.get(selL).getBasket().get(i).getQuantity());
+				System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"ï¿½   x"+Users.get(selL).getBasket().get(i).getQuantity());
 				}
 				else if(Product.dollar==true) {
 					System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"$   x"+Users.get(selL).getBasket().get(i).getQuantity());
 					}
 				else if(Product.pound==true) {
-					System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"£   x"+Users.get(selL).getBasket().get(i).getQuantity());
+					System.out.println(Users.get(selL).getBasket().get(i).getName()+"  "+Users.get(selL).getBasket().get(i).getPrice()+"ï¿½   x"+Users.get(selL).getBasket().get(i).getQuantity());
 					}
 			}
 		} else {
 			System.out.println("Empty");
 		}
 	}
-	
-	
 
-	void userMenu() {	 
+
+
+	void userMenu() {
 		int select;
 		do {
 		System.out.println("Welcome to THE WAREHOUSE");
@@ -138,14 +141,14 @@ public class User {
 		System.out.println("   3. Exit");
 		Scanner sc = new Scanner(System.in);
 		select = sc.nextInt();
-		
+
 	    switch(select) {
 			case 1:
 			logIn();
 		break;
 			case 2:
-			signIn(); 
-			  		
+			signIn();
+
 	    case 3:
 	    	break;
 	    case 4:
@@ -154,7 +157,7 @@ public class User {
 	    case 5:
 	    	showBasket();
 	    	break;
-	    	
+
 		}
 		}while(select!=3);
 	}
