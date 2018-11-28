@@ -14,7 +14,7 @@ I fix all the problems, that the program had. And added new cast. Also I impleme
 
 ### V3
 
-I have used the design patron singleton and also all the things that from V2 that i left.
+I have used the design patron singleton and also all the things that I left from V2.
 
 ## Code
 ### Classes
