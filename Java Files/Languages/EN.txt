@@ -1,0 +1,10 @@
+UserMenu0 = Welcome to the WAREHOUSE.
+UserMenu1 = 1. Log in
+UserMenu2 = 2. Sign In
+UserMenu1 = 3. Exit
+Menu0 = Choose an option:
+Menu1 = 1. Buy
+Menu2 = 2. Sell
+Menu3 = 3. Basket
+Menu4 = 4. €/$/£
+Menu5 = 5. Exit
