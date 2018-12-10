@@ -7,10 +7,9 @@ public class User extends Language{
 	private  String email;
 	private  String name;
 	private  String password;
-	private Boolean exist;
 	List<Product> basket = new ArrayList<>();
-    static public List<User> Users=new ArrayList<>();
-	private  int selS=0;
+    public static List<User> Users=new ArrayList<>();
+	private static  int selS=0;
 	public static int selL=0;
 	
 	User(String name, String email, String password){
@@ -49,20 +48,14 @@ public class User extends Language{
 		this.password = password;
 	}
 	
-	private void logIn() {
+	public static void logIn(String User, String Password) {
 		selL=0;
-		System.out.println("Introduce your email: ");
-		Scanner sc1 = new Scanner(System.in);
-		setEmail(sc1.nextLine());
-		System.out.println("Introduce your password: ");
-	    Scanner sc2=new Scanner(System.in);
-		setPassword(sc2.nextLine());
 		do {
 		 selL++;		
 		}
-		while(selL<selS&&!Users.get(selL).getEmail().equals(email)&&!Users.get(selL).getPassword().equals(password));
+		while(selL<selS&&!Users.get(selL).getName().equals(User)&&!Users.get(selL).getPassword().equals(Password));
         if(selS==0) {
-        	if(Users.get(0).getEmail().equals(email)&&Users.get(0).getPassword().equals(password)) {
+        	if(Users.get(0).getName().equals(User)&&Users.get(0).getPassword().equals(Password)) {
     			System.out.println("Welcome "+ Users.get(0).getName());
     			selL=0;
     			Product.menuP();
@@ -71,7 +64,7 @@ public class User extends Language{
     		    System.out.println("The user/password is incorrect.");
     		}
         }
-        else if(Users.get(selL).getEmail().equals(email)&&Users.get(selL).getPassword().equals(password)) {
+        else if(Users.get(selL).getName().equals(User)&&Users.get(selL).getPassword().equals(Password)) {
 			System.out.println("Welcome "+ Users.get(selL).getName());
 			Product.menuP();
 		}
@@ -81,22 +74,9 @@ public class User extends Language{
         
 	}
 	
-	private void signIn() {
-    	if (Users.get(selS).exist==true) {
-			  selS++;
-		  }
-		    
-    	    System.out.println("Introduce your email: ");
-			Scanner sc3 = new Scanner(System.in);
-			setEmail(sc3.nextLine());
-			System.out.println("Introduce your name: ");
-		    Scanner sc4 = new Scanner(System.in);
-		    setName(sc4.nextLine());
-			System.out.println("Introduce your password: ");
-			Scanner sc5 = new Scanner(System.in);
-			setPassword(sc5.nextLine());
-			
-			Users.add(selS,new User(getName(), getEmail(), getPassword()));
+	static void signIn(String user, String email, String password) {
+   	
+			Users.add(selS,new User(user, email, password));
     }
 	
 	void printUsers() {
@@ -128,7 +108,7 @@ public class User extends Language{
 	
 	
 
-	void userMenu() {	 
+	/*void userMenu() {	 
 		int select;
 		do {
 		System.out.println(UserMenu0);
@@ -157,6 +137,7 @@ public class User extends Language{
 		}
 		}while(select!=3);
 	}
+	*/
 
 
 	public static void main(String[] args) {
@@ -165,7 +146,7 @@ public class User extends Language{
 		t.Users.add(0,new User("luis", "luis@gmail.com", "123"));
 		t.Users.get(0).getBasket().add(new Product("Lapices", "Lapiz Rojo", 1, 2 ));
 		t.Users.get(0).getBasket().add(new Product("Lapices", "Lapiz Verde", 5, 3 ));
-		t.userMenu();
+		//t.userMenu();
 	}
 
 }

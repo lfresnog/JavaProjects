@@ -139,17 +139,7 @@ public class Product extends Language  {
 						Category.buyProduct();
 						break;
 					case 2:
-						int select1;
-						System.out.print("1.Book ");
-						System.out.print("1.Film ");
-						Scanner sc2 = new Scanner(System.in);
-						select1=sc2.nextInt();
-						if(select1==1) {
-							Book.addBook();
-						}
-						else if(select==0) {
-							Film.addFilm();
-						}
+						
 						break;
 				    case 3:
 				    	User.Users.get(User.selL).showBasket();

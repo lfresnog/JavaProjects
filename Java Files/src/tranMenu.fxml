@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane fx:id="buyButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nebrija.jp.tranMenuController">
+   <children>
+      <Button fx:id="buyButton" layoutX="198.0" layoutY="72.0" mnemonicParsing="false" onAction="#actionbuyButton" prefHeight="101.0" prefWidth="203.0" text="BUY" />
+      <Button fx:id="sellButton" layoutX="198.0" layoutY="242.0" mnemonicParsing="false" onAction="#actionsellButton" prefHeight="101.0" prefWidth="203.0" text="SELL" />
+   </children>
+</Pane>
