@@ -9,7 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nebrija.jp.sellMenuController">
    <children>
-      <Button fx:id="buyButton" layoutX="497.0" layoutY="177.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="89.0" text="BUY" />
+      <Button fx:id="buyButton" layoutX="497.0" layoutY="178.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="95.0" text="BUY" />
       <VBox prefHeight="400.0" prefWidth="491.0">
          <children>
             <ChoiceBox fx:id="categoryChoice" prefHeight="26.0" prefWidth="180.0" />

@@ -12,7 +12,8 @@ public class Launcher extends Application{
 
 	
 	static Stage userMenu;
-	static Stage signInMenu; 
+	static Stage signInMenu;
+	static Stage sellMenu;
 	
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -20,6 +21,7 @@ public class Launcher extends Application{
 	
 		userMenu = new Stage();
 		signInMenu= new Stage();
+		sellMenu= new Stage();
 		
 		
 		try {
@@ -51,6 +53,20 @@ public class Launcher extends Application{
 		E.printStackTrace();
 		
 	}
+	
+	try {
+		
+		URL res = getClass().getClassLoader().getResource("sellMenu.fxml");
+		Parent root = FXMLLoader.load(res);
+		Scene scene = new Scene(root);
+		sellMenu.setScene(scene);
+		sellMenu.setTitle("Luis-Shop");
+		
+		}catch(Exception E) {
+			
+			E.printStackTrace();
+			
+		}
 		
 }
 	

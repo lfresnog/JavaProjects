@@ -10,16 +10,10 @@ public class Category {
 	
 	Category(String name){
 		this.name = name;
-		List<Product> Products = new ArrayList<>();
 		this.Products=Products;
+		Categories.add(this);
 	}
 	
-	public static List<Category> getInstance() {
-		if(Categories==null) {
-			Categories=new ArrayList<Category>();
-		}
-		return Categories;
-	}
 	
 	public List<Product> getProducts() {
 		return Products;
@@ -55,6 +49,9 @@ public class Category {
 		 }
 	}
 		
+	void addProduct(Product product) {
+		Products.add(product);
+	}
 	static Category searchCategories(String name) {
 		Category category = new Category(name);
 		for(int i = 0; i < Categories.size(); i++) {

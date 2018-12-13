@@ -23,7 +23,12 @@ public class Product extends Language  {
 			this.name=name;
 			this.price=price;
 			this.quantity=quantity;
+			for(int i = 0; i < Category.Categories.size(); i++) {
+			if(this.category.equals(Category.Categories.get(i).getName())) {
+				Category.Categories.get(i).addProduct(this);
 		}
+		}
+}
 		
 		
 		

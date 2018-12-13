@@ -29,6 +29,10 @@ public class UserMenuController {
     	user = UserText.getText();
     	password = UserText.getText();
     	User.logIn(user, password);
+    	if(User.exist) {
+    		Launcher.userMenu.close();
+    		Launcher.sellMenu.show();
+    	}
     }
   
     @FXML

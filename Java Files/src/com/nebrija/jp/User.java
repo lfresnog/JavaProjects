@@ -11,6 +11,7 @@ public class User extends Language{
     public static List<User> Users=new ArrayList<>();
 	private static  int selS=0;
 	public static int selL=0;
+	static boolean exist;
 	
 	User(String name, String email, String password){
 		this.name=name;
@@ -58,18 +59,20 @@ public class User extends Language{
         	if(Users.get(0).getName().equals(User)&&Users.get(0).getPassword().equals(Password)) {
     			System.out.println("Welcome "+ Users.get(0).getName());
     			selL=0;
-    			Product.menuP();
+    			exist=true;
     		}
     		else{
     		    System.out.println("The user/password is incorrect.");
+    		    exist=false;
     		}
         }
         else if(Users.get(selL).getName().equals(User)&&Users.get(selL).getPassword().equals(Password)) {
 			System.out.println("Welcome "+ Users.get(selL).getName());
-			Product.menuP();
+			exist=true;
 		}
 		else{
 		    System.out.println("The user/password is incorrect.");
+		    exist=false;
 		}
         
 	}
