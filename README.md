@@ -16,6 +16,10 @@ I fix all the problems, that the program had. And added new cast. Also I impleme
 
 I have used the design patron singleton and also all the things that I left from V2.
 
+### V4
+
+I have implemented graphic interface and also set the basics for the next practice.
+
 ## Code
 ### Classes
 User:
