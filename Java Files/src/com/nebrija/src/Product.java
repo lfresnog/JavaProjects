@@ -1,7 +1,7 @@
-package com.nebrija.jp;
+package com.nebrija.src;
 import java.util.Scanner;
 
-public class Product extends Language  {
+public class Product {
 	
 		 String name;
 		 int id;
