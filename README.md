@@ -2,23 +2,14 @@
 
 The principal idea, is create a platform were different users can buy and sell different products.
 
-## Versions
+## V5
 
-### V1
+I have implemented a class using intern classes, creating a class client that buys a product and a class chasier, thats validates that the transantion happens.
+I implemented in the class client a boolean call test, to use it in my thread's tests,after a lot of searching i didn't find anything of help and I have not got it.
 
-I started this idea trought the implementation of arrays, but when i tried to link it with my users, started to give me a lot problems, also, the use of arrays make the code too big and complicated. So, following the tips and help of my schoolmates, I decided to make it, with the new variable that we have seen with Alfonso, arrayList. I think that works well, but in some exceptional cases, the code has leaks.
+I find this practice pretty interesting and a oportunity to fix the things about my program, but I have a problem and I lost the new GUI,the proxy menu and the tests to upgrade my mark(I have sent you a message to see if you can help me), in this week I will redo it, because I think that is a good way to review for the exam. 
 
-### V2
-
-I fix all the problems, that the program had. And added new cast. Also I implement the code in different way instead of having only one list for the basket's users and the products's category, I created one list for each user or category, this makes the program bigger but faster, and in my opinion better.
-
-### V3
-
-I have used the design patron singleton and also all the things that I left from V2.
-
-### V4
-
-I have implemented graphic interface and also set the basics for the next practice.
+PD:During my research i found this interesting website https://codurance.com/2015/12/13/testing-multithreaded-code-in-java/ where they conclude that the multithreading test is quite hard and is better use a framework.
 
 ## Code
 ### Classes
@@ -28,6 +19,7 @@ User:
     /Password
     /Exist (To test if it is the last user)
     /Basket (List with the products that the user bought)
+    /The different tests
 
 Category:
      Name
