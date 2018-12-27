@@ -15,10 +15,10 @@ public class Category {
 	public List<Product> getProducts() {
 		return Products;
 	}
-	String getName() {
+	public String getName() {
 		return name;
 	}
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	  static private void printCategories() {
