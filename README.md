@@ -2,6 +2,8 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a203fa310dab4269bda306e163042d9e)](https://app.codacy.com/app/lfresnog/JavaProjects?utm_source=github.com&utm_medium=referral&utm_content=lfresnog/JavaProjects&utm_campaign=Badge_Grade_Dashboard)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/lfresnog/JavaProjects?branch=master)](https://bettercodehub.com/)
+
 The principal idea, is create a platform were different users can buy and sell different products.
 
 ## V5
