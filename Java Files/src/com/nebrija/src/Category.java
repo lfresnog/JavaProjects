@@ -21,13 +21,13 @@ public class Category {
 	void setName(String name) {
 		this.name = name;
 	}
-	  static void printCategories() {
+	  static private void printCategories() {
 		System.out.println("-- Categories --");
 		for(int i = 0; i < Categories.size(); i++) {
 			System.out.println(Categories.get(i).getName());
 		}
 	}  
-	static void printProducts(Category c) {
+	static private void printProducts(Category c) {
 		System.out.println("-- " + c.getName()+" --" + ": ");
 		for(int i = 0; i < c.getProducts().size(); i++) {
 			if(Product.euro==true) {
@@ -41,10 +41,10 @@ public class Category {
 			}
 		 }
 	}
-	void addProduct(Product product) {
+	private void addProduct(Product product) {
 		Products.add(product);
 	}
-	static Category searchCategories(String name) {
+	static private Category searchCategories(String name) {
 		Category category = new Category(name);
 		for(int i = 0; i < Categories.size(); i++) {
 			if(name.equals(Categories.get(i).getName())) {
@@ -56,7 +56,7 @@ public class Category {
 		}
 	return category;
 	}
-	static Product searchProducts(String name) {
+	static private Product searchProducts(String name) {
 		Product searched = new Product("",name, 0, 0);
 		for(int i = 0; i < Categories.size(); i++) {
 			for(int j = 0; j < Categories.get(i).getProducts().size(); j++) {
