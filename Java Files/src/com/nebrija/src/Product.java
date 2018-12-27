@@ -18,15 +18,18 @@ public class Product {
 		
 		boolean exist=true;
 		
-		Product(String category, String name, float price, int quantity){
+		public Product(String category, String name, float price, int quantity){
 			this.category=category;
 			this.name=name;
 			this.price=price;
 			this.quantity=quantity;
 			for(int i = 0; i < Category.Categories.size(); i++) {
-			if(this.category.equals(Category.Categories.get(i).getName())) {
+			if(category.equals(Category.Categories.get(i).getName())) {
 				Category.Categories.get(i).addProduct(this);
 		}
+			else{
+				Category.Categories.add(new Category(category));
+			}
 		}
 }
 		
