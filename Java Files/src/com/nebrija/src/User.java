@@ -85,13 +85,13 @@ public class User {
         
 	}
 	
-	static void signIn(String user, String email, String password) {
+	public static void signIn(String user, String email, String password) {
    	
 			Users.add(new User(user, email, password));
 			selS++;
     }
 	
-	static void printUsers() {
+	private static void printUsers() {
 		for(int i=0;i<Users.size();i++) {
 			System.out.println(Users.get(i).getName());
 			System.out.println(Users.get(i).getEmail());
@@ -99,7 +99,7 @@ public class User {
 		}
 	}
 	
-	 static void showBasket() {
+	 public static void showBasket() {
 		System.out.println("-- Basket --");
 		if (Users.get(selL).getBasket().size() > 0) {
 			for(int i = 0; i < Users.get(selL).getBasket().size(); i++) {
@@ -119,7 +119,7 @@ public class User {
 	}
 	
 	
-	 static void userMenu() {	 
+	 public static void userMenu() {	 
 		int select;
 		do {
 			
