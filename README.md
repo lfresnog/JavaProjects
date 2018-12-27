@@ -7,7 +7,7 @@ The principal idea, is create a platform were different users can buy and sell d
 
 ## V5
 
-I have implemented a class using intern classes, creating a class client that buys a product and a class chasier, thats validates that the transantion happens.
+I have implemented a class using intern classes, creating a class client that buys a product and a class chasier, thats validates that the transantion happens.Also I have interned the class product in the class category.
 I implemented in the class client a boolean call test, to use it in my thread's tests,after a lot of searching i didn't find anything of help and I have not got it.
 
 I find this practice pretty interesting and a oportunity to fix the things about my program, but I have a problem and I lost the new GUI,the proxy menu and the tests to upgrade my mark(I have sent you a message to see if you can help me), in this week I will redo it, because I think that is a good way to review for the exam. 
